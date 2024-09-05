@@ -14,10 +14,10 @@ def redirect_video(url):
     elif url.startswith("https:/"):
         url = url.replace("https:/", "https://")
 
-    # Verifica se a URL segue o formato desejado
-    if url.startswith("https://wishonly.site/e/"):
+    # Verifica se a URL segue o formato desejado e modifica
+    if "https://filemoon.sx/e/" in url:
         video_id = url.split("/")[-1]
-        new_url = f"https://wishonly.site/f/{video_id}_x"
+        new_url = f"https://filemoon.sx/download/{video_id}"
         return redirect(new_url)
     else:
         return "Formato de URL inválido", 400
