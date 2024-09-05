@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect
+import urllib.parse
 
 app = Flask(__name__)
 
@@ -8,6 +9,9 @@ def index():
 
 @app.route('/get-video/mxfliofc-vip/<path:url>')
 def redirect_video(url):
+    # Decodifica a URL para lidar com caracteres especiais
+    url = urllib.parse.unquote(url)
+
     # Verifica se a URL começa com 'http:' ou 'https:' e ajusta conforme necessário
     if url.startswith("http:/"):
         url = url.replace("http:/", "http://")
